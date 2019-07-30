@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('students', 'StudentController@index')->name('students');
 Route::get('classes', 'ClassRoomController@index')->name('classes');
+Route::get('classes/add', 'ClassRoomController@createForm')->name('classes.add-form');
+Route::post('classes/create-post', 'ClassRoomController@create')
+    ->name('classes.create-post');
 
 Route::get('input', 'SumController@sumView')->name('sum-view');
 Route::post('sum', 'SumController@sum')->name('sum');
