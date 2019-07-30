@@ -28,3 +28,7 @@ Route::get('/admins', function () {
 Route::get('/users', function () {
     return view('users');
 });
+
+Route::get('/admin_temp', function () {
+    return view('admin.master');
+});
