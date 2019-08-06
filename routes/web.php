@@ -26,12 +26,9 @@ Route::group(
         Route::post('create-post', 'ClassRoomController@create')->name('create-post');
         Route::get('{class}/edit', 'ClassRoomController@editForm')->name('edit');
         Route::post('update-post', 'ClassRoomController@update')->name('update');
+        Route::get('{class}/delete', 'ClassRoomController@delete')->name('delete');
     }
 );
-// Route::get('classes', 'ClassRoomController@index')->name('classes');
-// Route::get('classes/add', 'ClassRoomController@createForm')->name('classes.add-form');
-// Route::post('classes/create-post', 'ClassRoomController@create')
-//     ->name('classes.create-post');
 
 Route::get('input', 'SumController@sumView')->name('sum-view');
 Route::post('sum', 'SumController@sum')->name('sum');

@@ -10,7 +10,10 @@ class ClassRoomController extends Controller
 {
     public function index()
     {
-        $classes = ClassRoom::all();
+        $class = ClassRoom::find(5);
+        $admins = $class->admins()->get();
+        dd($admins);
+        // $classes = ClassRoom::all();
         return view('admin.class', ['classes' => $classes]);
     }
 
@@ -68,6 +71,15 @@ class ClassRoomController extends Controller
         // 3. Update bang phuong thuc update
         $classRoom->update($data);
         // 4. Tra ve danh sach
+        return $this->index();
+    }
+
+    public function delete(ClassRoom $class) {
+        // 1. class la the hien cua doi tuong ClassRoom
+        // co id la class truyen vao route
+        // su dung phuong thuc delete()
+        $class->delete();
+        // 2. Tra ve view
         return $this->index();
     }
 }
