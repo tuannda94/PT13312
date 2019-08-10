@@ -33,12 +33,20 @@ Route::group(
 // Route::post('classes/create-post', 'ClassRoomController@create')
 //     ->name('classes.create-post');
 
+Route::group(
+    ['prefix' => 'admins', 'as' => 'admins'],
+    function () {
+        Route::get('/', 'AdminController@index')->name('list');
+        Route::get('class', 'AdminController@indexClass')->name('class');
+    }
+);
+
 Route::get('input', 'SumController@sumView')->name('sum-view');
 Route::post('sum', 'SumController@sum')->name('sum');
 
-Route::get('/admins', function () {
-    return view('admins');
-});
+// Route::get('/admins', function () {
+//     return view('admins');
+// });
 
 Route::get('/users', function () {
     return view('users');
