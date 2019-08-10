@@ -10,6 +10,7 @@
             <th>Teacher Name</th>
             <th>Major</th>
             <th>Max Student</th>
+            <th>Admins</th>
             <th>Actions</th>
         </thead>
         <tbody>
@@ -20,6 +21,15 @@
                     <td>{{$class->teacher_name}}</td>
                     <td>{{$class->major}}</td>
                     <td>{{$class->max_student}}</td>
+                    <td>
+                        @if(count($class->admins))
+                            @foreach($class->admins as $admin)
+                                <p>{{$admin->name}}</p>
+                            @endforeach
+                        @else
+                            <p>Khong co admin</p>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{route('classes.edit', $class->id)}}">Update</a>
                         <a href="#">Delete</a>

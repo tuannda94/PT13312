@@ -4,19 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Student extends Model
+class Admin extends Model
 {
-    protected $table = 'students';
+    protected $table = 'admins';
 
     protected $fillable = [
         'name',
-        'address',
         'university',
         'class_id',
+        'is_active',
     ];
 
     public function classRoom()
     {
-        return $this->belongsTo('App\Models\ClassRoom');
+        return $this->belongsTo('App\Models\ClassRoom', 'class_id', 'id');
     }
 }
