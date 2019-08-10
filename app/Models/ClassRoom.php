@@ -14,8 +14,6 @@ class ClassRoom extends Model
         'major',
         'max_student',
     ];
-<<<<<<< Updated upstream
-=======
 
     public function admins()
     {
@@ -26,5 +24,4 @@ class ClassRoom extends Model
     {
         return $this->hasMany('App\Models\Student', 'class_id', 'id');
     }
->>>>>>> Stashed changes
 }

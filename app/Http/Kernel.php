@@ -60,6 +60,9 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
+        // Khai bao them custom middleware
+        'active.admin' => \App\Http\Middleware\CheckActiveAdmin::class,
+        'university.admin' => \App\Http\Middleware\CheckUniversityAdmin::class,
     ];
 
     /**

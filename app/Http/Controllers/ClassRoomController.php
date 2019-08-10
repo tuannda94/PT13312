@@ -8,14 +8,18 @@ use App\Http\Requests\ClassRoomRequest;
 
 class ClassRoomController extends Controller
 {
+    // Ham chay vao dau tien khi co phuong thuc trong controller duoc goi
+    function __construct()
+    {
+        // Dat middleware o day de luc nao cung check dau tien
+        $this->middleware(['auth', 'active.admin', 'university.admin']);
+    }
+
     public function index()
     {
         $classes = ClassRoom::all();
-<<<<<<< Updated upstream
-=======
         $classes = $classes->load('admins');
         // dd($classes->toArray());
->>>>>>> Stashed changes
         return view('admin.class', ['classes' => $classes]);
     }
 
