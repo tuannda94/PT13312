@@ -11,11 +11,7 @@ class ClassRoomController extends Controller
     public function index()
     {
         $classes = ClassRoom::all();
-<<<<<<< Updated upstream
-=======
         $classes = $classes->load('admins');
-        // dd($classes->toArray());
->>>>>>> Stashed changes
         return view('admin.class', ['classes' => $classes]);
     }
 

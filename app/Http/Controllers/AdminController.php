@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use App\Models\ClassRoom;
@@ -32,5 +33,28 @@ class AdminController extends Controller
         $class = $class->load('admins');
         dd($admins);
 
+    }
+
+    public function getLogin()
+    {
+        return view('admin.login');
+    }
+
+    public function postLogin(Request $request)
+    {
+        // $email = $request->email;
+        // $password = $request->password;
+        $data = $request->only('email', 'password');
+        // dd(Auth::attempt($data));
+        if (Auth::attempt($data)) {
+            return redirect()->route('classes.list');
+        } else {
+            return redirect()->route('admins.login');
+        }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
     }
 }

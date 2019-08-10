@@ -34,10 +34,12 @@ Route::group(
 //     ->name('classes.create-post');
 
 Route::group(
-    ['prefix' => 'admins', 'as' => 'admins'],
+    ['prefix' => 'admins', 'as' => 'admins.'],
     function () {
         Route::get('/', 'AdminController@index')->name('list');
         Route::get('class', 'AdminController@indexClass')->name('class');
+        Route::get('login', 'AdminController@getLogin')->name('getLogin');
+        Route::post('post-login', 'AdminController@postLogin')->name('postLogin');
     }
 );
 
